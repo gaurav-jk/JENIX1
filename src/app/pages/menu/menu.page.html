@@ -1,0 +1,30 @@
+<ion-menu
+    class="menu-type-reveal"
+    contentId="main-content"
+    menuId="main-menu"  
+    side="start" 
+    type="my-reveal">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title  #userAvatar>
+          <img alt="logo" id="header_logo" height="40" src="../../../assets/icon/LOGO.png">
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+  <ion-content>
+    <ion-menu-toggle *ngFor="let item of menuItems" #drawerItemList class="drawerItem">
+      <ion-item class="drawerInnerItem"
+      button (click)="setTitle(item.title)"
+      [routerLink]="item.path"
+      routerDirection="root"
+      routerLinkActive="active-item" 
+      [routerLinkActiveOptions]="{exact: true}">
+        <ion-icon [name]="item.icon" slot="start"></ion-icon>
+        <div class="drawerInnerItem">{{ item.title }}</div>
+      </ion-item>
+    </ion-menu-toggle>
+  </ion-content>
+</ion-menu>
+<app-header [title]="title"></app-header>
+<ion-router-outlet id="main-content"></ion-router-outlet>

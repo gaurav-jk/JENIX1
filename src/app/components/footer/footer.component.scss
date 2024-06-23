@@ -1,0 +1,27 @@
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .social-icons a {
+    margin: 0 10px;
+  }
+  
+  .payment-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .payment-icons img {
+    margin: 0 5px;
+  }
+  

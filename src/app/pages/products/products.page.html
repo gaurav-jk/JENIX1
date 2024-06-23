@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Products
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="displayedProducts.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of displayedProducts">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img[0].url" [alt]="product.img[0].alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+
+            <!-- Quantity Input -->
+            <!-- <ion-item>
+              <ion-label>Quantity</ion-label>
+              <ion-input type="number" [(ngModel)]="product.quantity" min="1" value="1"></ion-input>
+            </ion-item> -->
+
+            <!-- Custom styled button for Add to Cart -->
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+  <ng-template #noProducts>
+    <p>No products available.</p>
+  </ng-template>
+</ion-content>
