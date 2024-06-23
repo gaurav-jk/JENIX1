@@ -1,0 +1,7 @@
+{
+  "name": "JENIX",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
