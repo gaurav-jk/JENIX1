@@ -1,2 +1,112 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+:main {
+    --ion-item-background: red;
+    --ion-text-color: white;
+    --ion-item-align: center;
+}
+
+.centered-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.centered-group ion-item-divider {
+    width: auto; /* Adjust as needed */
+    text-align: center;
+}
+
+.centered-group ion-item {
+    width: auto; /* Adjust as needed */
+    text-align: center;
+}
+#header_logo {
+    height: 40px;
+}
+.center-text-container {
+    display: flex;
+    justify-content: center;
+}
+.footer-content {
+    text-align: center;
+    padding: 10px;
+}
+
+.social-icons,
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.social-icons a,
+.payment-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-content p {
+    font-size: 14px;
+    color: #777;
+}
+
+/* For WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff; /* Scrollbar color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin; /* Width of the scrollbar */
+  scrollbar-color: #ffffff #f1f1f1; /* Scrollbar thumb and track color */
+}
+
+.subscription-box {
+    text-align: center;
+    margin: 20px;
+}
+
+.subscription-box p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.email-subscription {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.email-subscription input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+    margin-right: 10px;
+    background-color: white;
+}
+
+.email-subscription button {
+    padding: 10px 20px;
+    background-color: black;
+    color: rgb(203, 188, 130);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.email-subscription button:hover {
+    background-color: rgb(203, 188, 130);
+    color: black;
+}

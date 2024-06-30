@@ -5,6 +5,10 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ProductService } from './product.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ApiService } from './api.service';
+
 // Import your CartService if needed
 // import { CartService } from './services/cart.service';
 
@@ -12,12 +16,13 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule
   ],
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },ApiService
     // CartService // Uncomment this if you need to add the service manually
   ],
   bootstrap: [AppComponent],

@@ -7,10 +7,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="displayedProducts.length > 0; else noProducts">
+  <ion-title>
+    Surveillance
+  </ion-title>
+  <ion-list *ngIf="Surveillance && Surveillance.length > 0; else noProducts">
     <!-- Ionic Grid with responsive layout -->
     <ion-row class="ion-justify-content-center">
-      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of displayedProducts">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of Surveillance">
         <ion-card class="product-card">
           <ion-card-header>
             <ion-card-title>{{ product.name }}</ion-card-title>
@@ -18,26 +21,429 @@
           </ion-card-header>
           <ion-card-content>
             <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
-            <img [src]="product.img[0].url" [alt]="product.img[0].alt" height="200px">
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
             <p>{{ product.details }}</p>
             <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
             <p><strong>Price:</strong> ₹{{ product.price }}</p>
             <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
-
-            <!-- Quantity Input -->
-            <!-- <ion-item>
-              <ion-label>Quantity</ion-label>
-              <ion-input type="number" [(ngModel)]="product.quantity" min="1" value="1"></ion-input>
-            </ion-item> -->
-
-            <!-- Custom styled button for Add to Cart -->
             <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-list>
+
+
+  <ion-title>
+    Access Control (Lock)
+  </ion-title>
+  <ion-list *ngIf="Access_Control_Lock && Access_Control_Lock.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of Access_Control_Lock">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+
+  <ion-title>
+    INTERCOM PABX
+  </ion-title>
+  <ion-list *ngIf="INTERCOM_PABX && INTERCOM_PABX.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of INTERCOM_PABX">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+
+  <ion-title>
+    Smart Home Automation
+  </ion-title>
+  <ion-list *ngIf="Smart_Home_Automation && Smart_Home_Automation.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of Smart_Home_Automation">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+
+  <ion-title>
+    WIFI CAMERA STAND ALONE SYSTEM
+  </ion-title>
+  <ion-list *ngIf="WIFI_CAMERA_STAND_ALONE_SYSTEM && WIFI_CAMERA_STAND_ALONE_SYSTEM.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of WIFI_CAMERA_STAND_ALONE_SYSTEM">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list> 
+  
+  <ion-title>
+    GPS TRACKER
+  </ion-title>
+  <ion-list *ngIf="GPS_TRACKER && GPS_TRACKER.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of GPS_TRACKER">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+  <ion-title>
+    4G ROUTER
+  </ion-title>
+  <ion-list *ngIf="ROUTER && ROUTER.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of ROUTER">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+  <ion-title>
+    NETWORKING AND PERIPHERAL
+  </ion-title>
+  <ion-list *ngIf="NETWORKING_AND_PERIPHERAL && NETWORKING_AND_PERIPHERAL.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of NETWORKING_AND_PERIPHERAL">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+  <ion-title>
+    Security Alarm System
+  </ion-title>
+  <ion-list *ngIf="Security_Alarm_System && Security_Alarm_System.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of Security_Alarm_System">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+  <ion-title>
+    Cable Convertor Connector
+  </ion-title>
+  <ion-list *ngIf="Cable_Convertor_Connector && Cable_Convertor_Connector.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of Cable_Convertor_Connector">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+  <ion-title>
+    Signal Booster
+  </ion-title>
+  <ion-list *ngIf="Signal_Booster && Signal_Booster.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of Signal_Booster">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+  <ion-title>
+    TOOLS AND CLIP PIN TAPE
+  </ion-title>
+  <ion-list *ngIf="TOOLS_AND_CLIP_PIN_TAPE && TOOLS_AND_CLIP_PIN_TAPE.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of TOOLS_AND_CLIP_PIN_TAPE">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+  <ion-title>
+    ROBOTICS
+  </ion-title>
+  <ion-list *ngIf="ROBOTICS && ROBOTICS.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of ROBOTICS">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+  <ion-title>
+    Spy - Micro Hidden Camera
+  </ion-title>
+  <ion-list *ngIf="Spy_Micro_Hidden_Camera && Spy_Micro_Hidden_Camera.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of Spy_Micro_Hidden_Camera">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+  <ion-title>
+    Public Parking Management
+  </ion-title>
+  <ion-list *ngIf="Public_Parking_Management && Public_Parking_Management.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of Public_Parking_Management">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+  <ion-title>
+    Mixed
+  </ion-title>
+  <ion-list *ngIf="Mixed && Mixed.length > 0; else noProducts">
+    <!-- Ionic Grid with responsive layout -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="5" size-lg="3" size-xs="12" *ngFor="let product of Mixed">
+        <ion-card class="product-card">
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ product.company }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="secondary">{{ product.discount }}%</ion-badge>
+            <img [src]="product.img?.[0]?.url" [alt]="product.img?.[0]?.alt" height="200px">
+            <p>{{ product.details }}</p>
+            <p><strong>MRP:</strong> ₹{{ product.mrp }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>Rating:</strong> {{ product.rating }} ⭐</p>
+            <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+
   <ng-template #noProducts>
     <p>No products available.</p>
   </ng-template>
 </ion-content>
+    <!-- Quantity Input -->
+            <!-- <ion-item>
+              <ion-label>Quantity</ion-label>
+              <ion-input type="number" [(ngModel)]="product.quantity" min="1" value="1"></ion-input>
+            </ion-item> -->
+
+            <!-- Custom styled button for Add to Cart -->

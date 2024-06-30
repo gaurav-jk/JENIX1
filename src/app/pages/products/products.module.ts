@@ -22,11 +22,33 @@ export class ProductsPageModule {}
 export interface Product {
   id: number;
   name: string;
-  company: string;
+  company?: string |undefined;
   img: { url: string, alt: string }[];
   details: string;
   mrp: number;
   price: number;
   discount: number;
   rating: number;
+
 }
+export type Categories={
+  "Surveillance"?:singleproduct;
+  "Public Parking Management"?:singleproduct;
+  "Mixed"?:singleproduct;
+  "Spy Micro Hidden Camera"?:singleproduct;
+  "ROBOTICS"?:singleproduct;
+  "TOOLS AND CLIP PIN TAPE"?:singleproduct;
+  "Signal Booster"?:singleproduct;
+  "Cable Convertor Connector"?:singleproduct;
+  "Security Alarm System"?:singleproduct;
+  "NETWORKING AND PERIPHERAL"?:singleproduct;
+  "GPS TRACKER"?:singleproduct;
+  "4G ROUTER"?:singleproduct;
+  "WIFI CAMERA - STAND ALONE SYSTEM"?:singleproduct;
+  "Smart Home Automation"?:singleproduct;
+  "INTERCOM PABX"?:singleproduct;
+  "Access Control (Lock)"?:singleproduct;
+
+};
+export type singleproduct = Product[]|undefined|any[];
+

@@ -1,6 +1,7 @@
 // cart.page.ts
 import { Component, OnInit } from '@angular/core';
-import { CartService, CartItem } from '../../services/cart.service'; // Adjust the path as needed
+import { CartService } from '../../services/cart.service'; // Adjust the path as needed
+import { Product } from '../products/products.module';
 
 @Component({
   selector: 'app-cart',
@@ -8,14 +9,32 @@ import { CartService, CartItem } from '../../services/cart.service'; // Adjust t
   styleUrls: ['./cart.page.scss'],
 })
 export class CartPage implements OnInit {
-  cartItems: CartItem[] = [];
+  cartItems: Product[] = [];
+  // cartItems: CartItem[] = [];
 
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
-    this.cartItems = this.cartService.getCartItems();
-    console.log('Cart items on init:', this.cartItems); // Debug log
+    console.log( this.cartService.getItems());
+    
+    this.cartItems = this.cartService.getItems();
+    console.log(this.cartItems); 
+    // Log to see if items are being fetched
   }
+  // ngOnInit() {
+  //   this.cartItems = this.cartService.getCartItems();
+  //   console.log('Cart items on init:', this.cartItems); // Debug log
+  // }
+  // addToCart(product: CartItem) {
+  //   console.log('Adding product to cart:', product);
+  //   this.cartItems.push(product);
+  //   console.log('Current cart items:', this.cartItems);
+  // }
+  
+  // getCartItems(): CartItem[] {
+  //   console.log('Getting cart items:', this.cartItems);
+  //   return this.cartItems;
+  // }
 }
 
 

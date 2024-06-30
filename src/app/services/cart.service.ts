@@ -1,56 +1,72 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
-export interface CartItem {
-  name: string;
-  company: string;
-  discount: number;
-  img: { url: string; alt: string }[];
-  details: string;
-  mrp: number;
-  price: number;
-  rating: number;
-}
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-
 export class CartService {
-  private cartItems: CartItem[] = [];
-  // private cart: any[] = [];
+  private cart = new BehaviorSubject<Array<any>>([]);
+  cart$ = this.cart.asObservable();
 
-  constructor() {}
-  
-  addToCart(product: CartItem) {
-    console.log('Adding product to cart:', product);
-    this.cartItems.push(product);
-    console.log('Current cart items:', this.cartItems);
+  addToCart(product: any) {
+    
+    const currentCart = this.cart.value;
+    currentCart.push(product);
+    console.log(currentCart);
+    
+    this.cart.next(currentCart);
+    console.log(this.cart);
   }
-  
-  getCartItems(): CartItem[] {
-    console.log('Getting cart items:', this.cartItems);
-    return this.cartItems;
+
+  getItems() {
+    console.log(this.cart);
+    
+    return this.cart.value;
+  }
+
+  clearCart() {
+    this.cart.next([]);
   }
 }
 
-//   getCart() {
-//     return this.cart;
+// import { Injectable } from '@angular/core';
+// import { Product } from '../pages/products/products.module';
+
+// export interface CartItem {
+//   name: string;
+//   company: string;
+//   discount: number;
+//   img: { url: string; alt: string }[];
+//   details: string;
+//   mrp: number;
+//   price: number;
+//   rating: number;
+
+// }
+// @Injectable({
+//   providedIn: 'root',
+// })
+
+// export class CartService {
+//   private cartItems: Product[] = [];
+//   // private cart: any[] = [];
+
+//   constructor() {}
+  
+//   getItems() {
+//     return this.cartItems;
 //   }
 
-//   addProductToCart(product: any) {
-//     this.cart.push(product);
-//     console.log('Cart:', this.cart);
-//   }
-
-//   removeProductFromCart(product: any) {
-//     const index = this.cart.indexOf(product);
-//     if (index > -1) {
-//       this.cart.splice(index, 1);
-//     }
-//     console.log('Cart:', this.cart);
+//   addToCart(item: Product) {
+//     console.log(item);
+    
+//     this.cartItems.push(item);
+//     console.log(this.cartItems);
+    
 //   }
 
 //   clearCart() {
-//     this.cart = [];
-//     console.log('Cart cleared');
+//     this.cartItems = [];
+//     return this.cartItems;
 //   }
 // }

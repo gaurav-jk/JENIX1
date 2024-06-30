@@ -1,13 +1,39 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>my</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="login-signup-content">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Login or Signup</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Phone Number</ion-label>
+          <ion-input formControlName="phoneNumber" type="text"></ion-input>
+        </ion-item>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">my</ion-title>
-    </ion-toolbar>
-  </ion-header>
+        <ion-item>
+          <ion-label position="floating">First Name</ion-label>
+          <ion-input formControlName="firstName" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Last Name</ion-label>
+          <ion-input formControlName="lastName" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Email Address</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" [disabled]="!loginForm.valid">Sign Up</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <p class="login-text">Already have an account? <a href="#">Login</a></p>
+  </form>
 </ion-content>

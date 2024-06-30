@@ -1,13 +1,16 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>categories</ion-title>
+    <ion-title>Categories</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">categories</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let category of categories" (click)="onCategorySelect(category)">
+      <ion-thumbnail slot="start">
+        <img [src]="category.image" alt="{{ category.name }}">
+      </ion-thumbnail>
+      <ion-label>{{ category.name }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
