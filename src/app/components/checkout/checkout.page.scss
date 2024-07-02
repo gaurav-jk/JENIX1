@@ -1,0 +1,23 @@
+.page-checkout {
+    ion-card {
+      margin: 10px;
+    }
+  
+    ion-thumbnail img {
+      width: 100px;
+      height: auto;
+    }
+  }
+  button {
+    background-color: black;
+    color: rgb(203, 188, 130);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+button:hover {
+    background-color: rgb(203, 188, 130);
+    color: black;
+}
