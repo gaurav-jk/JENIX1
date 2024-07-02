@@ -1,72 +1,32 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Product } from '../pages/products/products.module'; // Adjust the path as per your project structure
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private cart = new BehaviorSubject<Array<any>>([]);
-  cart$ = this.cart.asObservable();
+  private cartSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  cart$ = this.cartSubject.asObservable();
 
-  addToCart(product: any) {
-    
-    const currentCart = this.cart.value;
-    currentCart.push(product);
-    console.log(currentCart);
-    
-    this.cart.next(currentCart);
-    console.log(this.cart);
+  constructor() {}
+
+  addToCart(product: Product) {
+    const currentCart = this.cartSubject.getValue();
+    this.cartSubject.next([...currentCart, product]);
   }
 
-  getItems() {
-    console.log(this.cart);
-    
-    return this.cart.value;
+  removeFromCart(product: Product) {
+    const currentCart = this.cartSubject.getValue();
+    const updatedCart = currentCart.filter(item => item.id !== product.id);
+    this.cartSubject.next(updatedCart);
   }
 
   clearCart() {
-    this.cart.next([]);
+    this.cartSubject.next([]);
+  }
+
+  get cart(): Product[] {
+    return this.cartSubject.getValue();
   }
 }
-
-// import { Injectable } from '@angular/core';
-// import { Product } from '../pages/products/products.module';
-
-// export interface CartItem {
-//   name: string;
-//   company: string;
-//   discount: number;
-//   img: { url: string; alt: string }[];
-//   details: string;
-//   mrp: number;
-//   price: number;
-//   rating: number;
-
-// }
-// @Injectable({
-//   providedIn: 'root',
-// })
-
-// export class CartService {
-//   private cartItems: Product[] = [];
-//   // private cart: any[] = [];
-
-//   constructor() {}
-  
-//   getItems() {
-//     return this.cartItems;
-//   }
-
-//   addToCart(item: Product) {
-//     console.log(item);
-    
-//     this.cartItems.push(item);
-//     console.log(this.cartItems);
-    
-//   }
-
-//   clearCart() {
-//     this.cartItems = [];
-//     return this.cartItems;
-//   }
-// }

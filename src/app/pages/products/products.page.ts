@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {  CartService } from '../../services/cart.service'; // Adjust the path as necessary
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { max } from 'rxjs';
 import { Categories, Product, singleproduct } from './products.module';
 
@@ -35,11 +35,50 @@ export class ProductsPage implements OnInit {
   totalProducts: number = 0;
   
 
-  constructor(private http: HttpClient, private cartService: CartService,private alertController: AlertController) { }
+  constructor(private http: HttpClient, private cartService: CartService,private alertController: AlertController,private navCtrl: NavController,) { }
 
-  async addToCart(product: Product) {
+
+  ngOnInit() {
+    this.loadProducts();
+  }
+
+
+  loadProducts() {
+    this.http.get<{ products: any[], total: number }>(`https://demo-api-production-4643.up.railway.app/api/products?page=${this.currentPage}&limit=${this.pageSize}`)
+    .subscribe(result => {
+      console.log(result);
+      this.products = result.products?.[0]?.categories;
+      this.totalProducts = result.total;
+      // this.updateDisplayedProducts();
+      console.log(this.products);
+      this.Surveillance=this.products?.Surveillance;
+      this.Access_Control_Lock=this.products?.['Access Control (Lock)'];
+      this.INTERCOM_PABX=this.products?.['INTERCOM PABX'];
+      this.Smart_Home_Automation=this.products?.['Smart Home Automation'];
+      this.WIFI_CAMERA_STAND_ALONE_SYSTEM=this.products?.['WIFI CAMERA - STAND ALONE SYSTEM'];
+      this.GPS_TRACKER=this.products?.['GPS TRACKER'];
+      this.ROUTER=this.products?.['4G ROUTER'];
+      this.NETWORKING_AND_PERIPHERAL=this.products?.['NETWORKING AND PERIPHERAL'];
+      this.Security_Alarm_System=this.products?.['Security Alarm System'];
+      this.Cable_Convertor_Connector=this.products?.['Cable Convertor Connector'];
+      this.Signal_Booster=this.products?.['Signal Booster'];
+      this.TOOLS_AND_CLIP_PIN_TAPE=this.products?.['TOOLS AND CLIP PIN TAPE'];
+      this.ROBOTICS=this.products?.ROBOTICS;
+      this.Spy_Micro_Hidden_Camera=this.products?.['Spy Micro Hidden Camera'];
+      this.Public_Parking_Management=this.products?.['Public Parking Management'];
+      this.Mixed=this.products?.Mixed;
+    },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+  
+
+  addToCart(product: any) {
     this.cartService.addToCart(product);
-    await this.showAlert(product.name);
+    this.navCtrl.navigateForward('/cart');
   }
 
   async showAlert(productName: string) {
@@ -48,46 +87,8 @@ export class ProductsPage implements OnInit {
       message: `${productName} has been added to your cart.`,
       buttons: ['OK']
     });
-
     await alert.present();
   }
-  ngOnInit() {
-    this.loadProducts();
-  }
-
-  loadProducts() {
-    this.http.get<{ products: any[], total: number }>(`https://demo-api-production-4643.up.railway.app/api/products?page=${this.currentPage}&limit=${this.pageSize}`)
-      .subscribe(result => {
-        console.log(result);
-        this.products = result.products?.[0]?.categories;
-        this.totalProducts = result.total;
-        // this.updateDisplayedProducts();
-        console.log(this.products);
-        this.Surveillance=this.products?.Surveillance;
-        this.Access_Control_Lock=this.products?.['Access Control (Lock)'];
-        this.INTERCOM_PABX=this.products?.['INTERCOM PABX'];
-        this.Smart_Home_Automation=this.products?.['Smart Home Automation'];
-        this.WIFI_CAMERA_STAND_ALONE_SYSTEM=this.products?.['WIFI CAMERA - STAND ALONE SYSTEM'];
-        this.GPS_TRACKER=this.products?.['GPS TRACKER'];
-        this.ROUTER=this.products?.['4G ROUTER'];
-        this.NETWORKING_AND_PERIPHERAL=this.products?.['NETWORKING AND PERIPHERAL'];
-        this.Security_Alarm_System=this.products?.['Security Alarm System'];
-        this.Cable_Convertor_Connector=this.products?.['Cable Convertor Connector'];
-        this.Signal_Booster=this.products?.['Signal Booster'];
-        this.TOOLS_AND_CLIP_PIN_TAPE=this.products?.['TOOLS AND CLIP PIN TAPE'];
-        this.ROBOTICS=this.products?.ROBOTICS;
-        this.Spy_Micro_Hidden_Camera=this.products?.['Spy Micro Hidden Camera'];
-        this.Public_Parking_Management=this.products?.['Public Parking Management'];
-        this.Mixed=this.products?.Mixed;
-      }, error => {
-        console.log(error);
-      });
-  }
-
-  // updateDisplayedProducts() {
-  //   this.displayedProducts = this.products;
-  // }
-
   nextPage() {
     if (this.currentPage * this.pageSize < this.totalProducts) {
       this.currentPage++;
@@ -101,8 +102,6 @@ export class ProductsPage implements OnInit {
       this.loadProducts();
     }
   }
-
-  // addToCart(product: CartItem) {
-  //   this.cartService.addToCart(product);
-  // }
 }
+
+

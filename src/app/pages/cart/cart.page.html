@@ -1,4 +1,3 @@
-<!-- cart.page.html -->
 <ion-header>
   <ion-toolbar>
     <ion-title>Cart</ion-title>
@@ -8,47 +7,9 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of cartItems">
-      <ion-thumbnail slot="start">
-        <img [src]="item.img[0]" alt="{{ item.name }}">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ item.name }}</h2>
-        <p>{{ item.details }}</p>
-        <p>Price: {{ item.price }}</p>
-      </ion-label>
+      {{ item.name }} - {{ item.price | currency }}
+      <ion-button (click)="removeFromCart(item)" slot="end">Remove</ion-button>
     </ion-item>
   </ion-list>
+  <ion-button (click)="clearCart()" expand="full" color="danger">Clear Cart</ion-button>
 </ion-content>
-
-
-<ion-footer>
-  <ion-toolbar>
-    <div class="footer-content">
-      <div class="social-icons">
-        <a href="https://www.facebook.com/jenix.in" target="_blank">
-          <img src="../../assets/icon/fb.png" alt="Facebook" />
-        </a>
-        <a href="https://jenixindia.com/" target="_blank">
-          <img src="../../assets/icon/li.png" alt="LinkedIn" />
-        </a>
-        <a href="https://jenixindia.com/" target="_blank">
-          <img src="../../assets/icon/insta.png" alt="Instagram" />
-        </a>
-        <a href="https://www.youtube.com/channel/UCXI20ZxK5FrZf58buCsCdlQ" target="_blank">
-          <img src="../../assets/icon/you.png" alt="YouTube" />
-        </a>
-      </div>
-      <div class="payment-icons">
-        <img src="../../assets/icon/g pay.png" alt="G Pay" />
-        <img src="../../assets/icon/card.png" alt="MASTER CARD" />
-        <img src="../../assets/icon/paytm.png" alt="Paytm" />
-        <img src="../../assets/icon/phone.png" alt="PhonePe" />
-        <img src="../../assets/icon/visa.png" alt="VISA" />
-      </div>
-      <p>
-        © Copyright Fashion 2021. All Rights Reserved. Crafted by GAURAV
-        RAJPUROHIT.
-      </p>
-    </div>
-  </ion-toolbar>
-</ion-footer>

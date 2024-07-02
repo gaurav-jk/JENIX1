@@ -1,0 +1,38 @@
+<ion-content class="login-signup-content center-content">
+  <form class="login-form">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Login</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+
+        <ion-item>
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input type="email" class="form-control" name="email"  [(ngModel)]="email">
+        </ion-item>
+        
+        <ion-item>
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" name="password" [(ngModel)]="password">
+        </ion-item>
+
+        <button type="button" class="btn btn-info" (click)="login()">Login</button>
+
+        <div style="text-align: center; margin-top: 10px;">
+          <a href="/forgot-password" style="text-decoration: none; color: var(--ion-color-dark);">Forgot password?</a>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+          <ion-button color="danger" (click)="signInWithGoogle()">
+            <ion-icon slot="start" name="logo-google"></ion-icon>
+            Sign In with Google
+          </ion-button>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+          <a href="/register" style="text-decoration: none;">Need Account? <span style="color: var(--ion-color-dark);">Sign Up</span></a>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>

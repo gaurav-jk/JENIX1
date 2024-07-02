@@ -1,0 +1,19 @@
+.center-text-container {
+    display: flex;
+    justify-content: center;
+}
+ion-button {
+    --background: black;            
+    --color: rgb(203, 188, 130);        
+    --border-radius: 10px;            
+    padding: 10px 20px;                 
+    transition: background-color 0.3s, color 0.3s; 
+
+    width: 170px;          
+    height: 50px; 
+    --color: rgb(203, 188, 130);
+}
+ion-button:hover {
+    --background: rgb(203, 188, 130); 
+    --color: black;                   
+}

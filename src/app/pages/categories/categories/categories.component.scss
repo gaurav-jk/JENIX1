@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  width: 100%;
+  padding: 10px;
+
+  .category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align for better look */
+    margin-top: 20px; /* Default margin */
+
+    @media (min-width: 768px) {
+      margin-top: 30px; /* Larger margin for bigger screens */
+    }
+
+    .item {
+      flex: 1 1 30%;
+      margin: 10px;
+
+      @media (min-width: 768px) {
+        margin: 15px; /* Increase margin for larger screens */
+      }
+
+      img {
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .category {
+    .item {
+      margin: 20px; /* Further increase margin for even larger screens */
+    }
+  }
+}

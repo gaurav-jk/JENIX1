@@ -1,0 +1,104 @@
+.login-signup-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+}
+
+ion-card {
+  width: 100%;
+}
+
+ion-card-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+ion-item {
+  margin-bottom: 10px;
+}
+
+ion-item .form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+ion-item .form-control {
+  border: none;
+  box-shadow: none;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+ion-item .form-control:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.btn-info {
+  display: block;
+  width: 100%;
+  background-color: black;
+  color: rgb(203, 188, 130);
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-info:hover {
+  color: black;
+  background-color: rgb(203, 188, 130);
+}
+
+a {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: none;
+  color: var(--ion-color-dark);
+}
+
+a span {
+  color: var(--ion-color-danger);
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa; /* Optional: adds a background color */
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px; /* Adjust the max-width as needed */
+  padding: 20px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+@media(min-width: 768px) {
+    ion-router-outlet {
+    margin-top: 63px;
+    }
+}
+
+@media(max-width: 768px) {
+    ion-router-outlet {
+        margin-top: 56px;
+        }
+}

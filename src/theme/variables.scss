@@ -1,5 +1,6 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
 :main {
     --ion-item-background: red;
     --ion-text-color: white;
@@ -45,10 +46,15 @@
     width: 24px;
     height: 24px;
 }
-
+ion-footer{
+position: absolute;
+  bottom: 0;
+}
 .footer-content p {
     font-size: 14px;
     color: #777;
+    position: relative;
+    overflow-y: auto; 
 }
 
 /* For WebKit browsers */

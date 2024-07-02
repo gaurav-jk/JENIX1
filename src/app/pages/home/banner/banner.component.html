@@ -1,0 +1,14 @@
+<div *ngIf="slides.length > 0" class="banner-container">
+  <swiper-container 
+    [modules]="swiperModules"
+    [slidesPerView]="1.1"
+    [initialSlide]="1"
+    [centeredSlides]="true"
+    [autoplay]="true"
+    [spaceBetween]="20"
+    [pagination]="{clickable: true, dynamicBullets: true}">
+    <swiper-slide *ngFor="let slide of slides">
+      <img [src]="slide?.banner" class="banner-image" />
+    </swiper-slide>
+  </swiper-container>
+</div>
